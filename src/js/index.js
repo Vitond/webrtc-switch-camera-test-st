@@ -104,7 +104,7 @@ const addTracks = async ({ video, audio }) => {
         await peerConnection.addTrack(track, localStream)
     });
     const sampleVideoElement = document.getElementById('sample-video');
-    await remotePeerConnection.addStream(sampleVideoElement.captureStream())
+    await remotePeerConnection.add(localStream)
 }
 
 ////////////////////////////////
