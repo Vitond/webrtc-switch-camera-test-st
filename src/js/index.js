@@ -12,6 +12,10 @@ const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
 
+document.getElementById('remoteVideo').addEventListener('click', () => {
+    console.log('CLICKED')
+})
+
 // SHOW LOCAL STREAM
 async function playVideoFromCamera(deviceId = null) {
     console.log('PLAYING DEVICE ID', deviceId)
@@ -88,7 +92,7 @@ const handleTracks = async (event) => {
         audio.srcObject = remoteStream;
         audio.play()
     } else if (event.track.kind === "video") {
-        console.log("GOT VIDEO TRACK")
+        console.log("GOT VIDEO TRACK", remoteStream)
         document.getElementById('remoteVideo').srcObject = remoteStream;
     }
 
