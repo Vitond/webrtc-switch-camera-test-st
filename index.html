@@ -9,11 +9,14 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
   <body>
-    <video src="mp4.mp4" style="width: 100px; height: 100px;" id="sample-video" autoplay loop muted></video>
     <h1>Já</h1>
-    <video muted style="border: 5px solid chartreuse; width: 50rem;"id="localVideo" autoplay playsinline></video>
+    <div style="border: 5px solid chartreuse; width: 50rem;">
+      <video id="localVideo" autoplay playsinline style></video>
+    </div>
     <h1>Peer</h1>
-    <video muted style="border: 5px solid rgb(0, 195, 255); width: 50rem;"id="remoteVideo" autoplay playsinline></video>
+    <div style="border: 5px solid rgb(0, 195, 255); width: 50rem;">
+      <video id="remoteVideo" autoplay playsinline style></video>
+    </div>
     <button style="width: 40rem; height: 10rem; display: block;" id="call">Zavolat</button>
     <button style="width: 40rem; height: 10rem; display: block;" id="add-audio-track">Add audio track</button>
     <button style="width: 40rem; height: 10rem; display: block;" id="add-video-track">Add video track</button>
