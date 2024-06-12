@@ -10,14 +10,14 @@ let offer = null;
 
 const gtag = (command, eventName, ...args) => {
     if ('dataLayer' in window) {
-        window.dataLayer.push(arguments)
+        window.dataLayer.push(command, eventName)
     }
     if ('ga' in window) {
         // Compatibility with old GA
         const trackers = window.ga.getAll();
         const firstTracker = trackers[0];
         const trackerName = firstTracker.get('name');
-        window.ga(trackerName + '.' + 'send', arguments);
+        window.ga(trackerName + '.' + 'send', command, eventName, ...args);
     }
 }
 
