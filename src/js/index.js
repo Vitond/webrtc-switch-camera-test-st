@@ -8,11 +8,25 @@ let currentStream = null;
 let currentVideoDeviceId = null;
 let offer = null;
 
+const gtag = (command, eventName, ...args) => {
+    if ('dataLayer' in window) {
+        window.dataLayer.push(arguments)
+    }
+    if ('ga' in window) {
+        // Compatibility with old GA
+        const trackers = window.ga.getAll();
+        const firstTracker = trackers[0];
+        const trackerName = firstTracker.get('name');
+        window.ga(trackerName + '.' + 'send', arguments);
+    }
+}
+
 const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
 });
 
 document.getElementById('remoteVideo').addEventListener('click', () => {
+    gtag('event', 'remote_video_clicked')
     console.log('CLICKED')
 })
 
