@@ -10,7 +10,7 @@ let offer = null;
 
 const gtag = (command, eventName, ...args) => {
     if ('dataLayer' in window) {
-        window.dataLayer.push(command, eventName)
+        window.dataLayer.push({event: eventName})
     }
     if ('ga' in window) {
         // Compatibility with old GA
