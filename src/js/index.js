@@ -30,6 +30,11 @@ document.getElementById('remoteVideo').addEventListener('click', () => {
     console.log('CLICKED')
 })
 
+document.getElementById('localVideo').addEventListener('click', () => {
+    gtag('event', 'remote_video_licked')
+    console.log('CLICKED')
+})
+
 // SHOW LOCAL STREAM
 async function playVideoFromCamera(deviceId = null) {
     console.log('PLAYING DEVICE ID', deviceId)
